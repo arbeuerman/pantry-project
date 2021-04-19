@@ -1,0 +1,11 @@
+<h1> Create a New Recipe </h1>
+
+<%= form_for @recipe do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :meal %>
+    <%= f.text_field :meal %>
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
+    <%= f.submit %>
+<% end %>

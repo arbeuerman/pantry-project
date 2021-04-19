@@ -1,0 +1,14 @@
+<h1> <%= @current_user.username %>'s Pantry </h1>
+
+<br>
+<h3> Items: </h3>
+<% @foods.each do |food| %>
+    <p><%= food.name %> | <%= food.type_of_food %> </p>
+<% end %>
+</br>
+
+<%= link_to "Add Items to Pantry", add_to_pantry_path(@current_user) %>
+<br></br>
+<%= link_to "Remove Items from Pantry", action: "destroy" %>
+<br></br>
+<%= link_to "Back to my profile", user_path(@current_user.id) %>

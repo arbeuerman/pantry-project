@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # User.destroy_all
 # # User.reset_pk_sequence
+Ingredient.destroy_all
+Recipe.destroy_all
 
 # 10.times do 
 #     User.create(username: Faker::Creature::Animal.name.downcase, password: Faker::Color.unique.color_name, dietary_restriction: %w(vegan vegetarian gluten-free).sample)
@@ -24,14 +26,14 @@
 #     Food.create(name: Faker::Food.unique.ingredients, type_of_food: 'other')
 # end
 
-# 10.times do 
-#     Recipe.create(name: Faker::Food.unique.dish, meal: %w(breakfast lunch dinner).sample, cuisine: %w(Italian Thai American Brazilian Ethiopian Colombian).sample)
-# end
-
-60.times do 
-    Pantry.create(user_id: User.all.sample.id, food_id: Food.all.sample.id)
+20.times do 
+    Recipe.create(name: Faker::Food.unique.dish, meal: %w(breakfast lunch dinner).sample, cuisine: %w(Italian Thai American Brazilian Ethiopian Colombian).sample)
 end
 
-60.times do
+# 60.times do 
+#     Pantry.create(user_id: User.all.sample.id, food_id: Food.all.sample.id)
+# end
+
+100.times do
     Ingredient.create(recipe_id: Recipe.all.sample.id, food_id: Food.all.sample.id, amount: Faker::Food.measurement)
 end
