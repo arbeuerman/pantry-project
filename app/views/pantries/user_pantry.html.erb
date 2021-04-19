@@ -9,6 +9,6 @@
 
 <%= link_to "Add Items to Pantry", add_to_pantry_path(@current_user) %>
 <br></br>
-<%= link_to "Remove Items from Pantry", action: "destroy" %>
+<%= link_to "Remove Items from Pantry", remove_from_pantry_path %>
 <br></br>
 <%= link_to "Back to my profile", user_path(@current_user.id) %>
