@@ -17,17 +17,7 @@ class PantriesController < ApplicationController
         redirect_to user_pantry_path(current_user)
     end 
 
-    def edit
-        @user = current_user
-        @user_foods = @user.foods
-    end
-
-    def update
-        @user = current_user
-        pantry_item = Pantry.find(pantry_params)
-        @user.foods.delete(pantry_item)
-        redirect_to user_pantry_path(@user.id)
-    end
+    
 
     private 
     def pantry_params

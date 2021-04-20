@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :pantries, only: [:index, :create]  
   get '/users/:id/pantry', to: 'pantries#user_pantry', as: 'user_pantry'
   get '/users/:id/pantry/new', to: 'pantries#new', as: 'add_to_pantry'
-  get '/users/:id/pantry/edit', to: 'pantries#edit', as: 'remove_from_pantry'
-  patch '/users/:id/pantry/remove', to: 'pantries#update'
+  get '/users/:id/pantry/edit', to: 'users#edit', as: 'remove_from_pantry'
+  patch '/users/:id', to: 'users#update'
 
   resources :foods
 
