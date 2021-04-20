@@ -2,5 +2,5 @@
 
 <%= form_for @user do |f| %>
    <p> Name of food: <%= f.collection_select :foods, @user_foods, :id, :name %> </p>
-   <%= f.submit %>
+   <%= f.submit "Remove food" %>
 <% end %>

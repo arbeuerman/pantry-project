@@ -20,4 +20,19 @@ class RecipesController < ApplicationController
     def new
         @recipe = Recipe.new
     end
+
+    def create
+        @recipe = Recipe.create(recipe_params)
+        if @recipe.valid?
+            redirect_to recipe_path(@recipe.id)
+        else
+            flash[:errors] = @recipe.errors.full_messages
+            redirect_to new_recipe_path
+        end
+    end
+
+    private
+    def recipe_params
+        params.require(:recipe).permit(:name, :meal, :cuisine, :description)
+    end
 end

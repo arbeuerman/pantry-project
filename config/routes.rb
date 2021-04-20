@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :ingredients
+  resources :ingredients, only: [:new, :create]
 
   get '/recipes/home', to: 'recipes#home', as: 'recipe_home'
   get '/recipes', to: 'recipes#user_recipes', as: 'user_recipes'
   get '/recipes/all', to: 'recipes#index', as: 'recipes'
+  post '/recipes/all', to: 'recipes#create'
   resources :recipes, only: [:show, :new]
   
 
