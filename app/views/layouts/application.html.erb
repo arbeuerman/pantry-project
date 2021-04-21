@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectTwoPantry</title>
+    <title>What's in Your Pantry</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,22 @@
   </head>
 
   <body>
+    <div class="header"> 
+      <nav class = "left">
+        <h3> What's in your Pantry? </h3>
+      </nav>
+      <nav class="right">
+        <% if @current_user %>
+          Welcome, <%= @current_user.username%>🍲
+          <%= link_to "Log out", '/logout', method: :delete %>
+        <% else %>
+          <h3> <%= link_to "Sign Up", new_user_path %> </h3>
+          <h3> <%= link_to "Log in", login_path %> </h3>  
+        <% end %>
+      </nav>
+
+    </div>
+
     <%= yield %>
   </body>
 </html>

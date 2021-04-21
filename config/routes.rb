@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :ingredients, only: [:new, :create]
+  resources :ingredients, only: [:index]
+  get '/ingredients/new/:recipe_id', to: 'ingredients#new', as: 'new_ingredient'
+  post '/ingredients', to: 'ingredients#create'
 
   get '/recipes/home', to: 'recipes#home', as: 'recipe_home'
   get '/recipes', to: 'recipes#user_recipes', as: 'user_recipes'
@@ -13,10 +15,11 @@ Rails.application.routes.draw do
   get '/users/:id/pantry/new', to: 'pantries#new', as: 'add_to_pantry'
   get '/users/:id/pantry/edit', to: 'users#edit', as: 'remove_from_pantry'
   patch '/users/:id', to: 'users#update'
+  delete '/logout', to: 'users#delete'
 
   resources :foods
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :new, :create]
 
   get '/login', to: 'sessions#new', as: "login"
   post '/login', to: 'sessions#create'

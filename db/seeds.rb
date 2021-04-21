@@ -29,7 +29,7 @@ Recipe.destroy_all
 20.times do 
     Recipe.create(name: Faker::Food.unique.dish, 
     meal: %w(breakfast lunch dinner).sample, 
-    cuisine: %w(Italian Thai American Brazilian Ethiopian Colombian).sample, description: Faker::Food.description)
+    cuisine: %w(Italian Thai American Brazilian Ethiopian Colombian).sample, instructions: Faker::Food.description, completed: true)
 end
 
 # 60.times do 

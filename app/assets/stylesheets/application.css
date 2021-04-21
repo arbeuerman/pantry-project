@@ -19,7 +19,27 @@
      background-color: aliceblue;
  }
 
- link
+ form
  {
-     border: blanchedalmond;
+     border: black;
+ }
+
+ .header 
+ {
+    display: flex;
+    background-color: #97e7fc;
+    padding: 1em;
+ }
+
+ nav.right
+ {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+ }
+
+ nav.right h3
+ {
+    padding: 3px;
+    display: flex;
  }

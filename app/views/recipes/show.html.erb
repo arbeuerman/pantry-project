@@ -4,10 +4,20 @@
 <% @recipe.ingredients.each do |ingredient|%>
     <p><%= ingredient.amount %>  <i><%= ingredient.food.name %></i> </p>
 <% end %> 
-<%= link_to "Add ingredients", new_ingredient_path %>      
 
-<h3> Description </h3>
-<p><%= @recipe.description %> </p>
+<% if @recipe.completed %>
+    <%= check_box_tag 'completed[]', 1, checked: true %>
+    <%= label_tag :completed, "Ingredients List Complete" %>
+<% else %>
+    <%= link_to "Add ingredients", new_ingredient_path(@recipe) %> 
+    <%= check_box_tag :completed, 1 %>
+    <%= label_tag :completed, "Ingredients List Complete" %>
+<% end %>  
+
+
+
+<h3> Instructions </h3>
+<p><%= @recipe.instructions %> </p>
 
 
 <%= link_to "Back to All Recipes", recipes_path %>
