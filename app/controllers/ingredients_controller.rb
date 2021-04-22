@@ -1,5 +1,7 @@
 class IngredientsController < ApplicationController
 
+    before_action :current_user
+    
     def new
         @ingredient = Ingredient.new
         @recipe = Recipe.find(params[:recipe_id])

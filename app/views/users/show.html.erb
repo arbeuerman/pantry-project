@@ -1,5 +1,8 @@
-<h1> Welcome <%= @current_user.username %>!</h1>
+<div class='basic_design'>
+    <h1> Welcome <%= @current_user.username %>!</h1>
 
-<p> Dietary Restrictions: <%= @current_user.dietary_restriction %> </p>
-<p> <%= link_to "View Pantry", user_pantry_path(@current_user.id) %> </p>
-<p> <%= link_to "Find Recipes", recipe_home_path %> </p>
+    <p> Dietary Restrictions: <%= @current_user.dietary_restriction %> </p>
+    <%= link_to "View Pantry", user_pantry_path(@current_user.id) %>
+    <%= link_to "Find Recipes", recipe_home_path %> 
+
+</div>    

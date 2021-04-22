@@ -1,14 +1,16 @@
-<h1> Create your Profile </h1>
+<div class='basic_design'>
+    <h1> Create your Profile </h1>
 
-<% if flash[:errors] %>
-    <% flash[:errors].each do |error|%>
-        <p>Error: <%= error %></p>
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error|%>
+            <p>Error: <%= error %></p>
+        <% end %>
     <% end %>
-<% end %>
 
-<%= form_for @user do |f| %>
-    <p>Enter username: <%= f.text_field :username %></p>
-    <p>Enter password: <%= f.password_field :password %></p>
-    <p>Enter any dietary restrictions you may have: <%= f.text_field :dietary_restriction %></p>
-    <%= f.submit "Create profile" %>
-<% end %>
+    <%= form_for @user do |f| %>
+        <p>Enter username: <%= f.text_field :username %></p>
+        <p>Enter password: <%= f.password_field :password %></p>
+        <p>Enter any dietary restrictions you may have: <%= f.text_field :dietary_restriction %></p>
+        <%= f.submit "Create profile" %>
+    <% end %>
+</div>

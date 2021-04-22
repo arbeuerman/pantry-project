@@ -1,23 +1,32 @@
-<h1> Recipe for <%= @recipe.name %></h1>
+<div class='basic_design'>
+    <h1> Recipe for <%= @recipe.name %></h1>
+    <div class='recipe'>
+        <div class='recipe_ingredients'>
+            <h3> Ingredients </h3>
+            <% @recipe.ingredients.each do |ingredient|%>
+                <p><%= ingredient.amount %>  <i><%= ingredient.food.name %></i> </p>
+            <% end %> 
 
-<h3> Ingredients </h3>
-<% @recipe.ingredients.each do |ingredient|%>
-    <p><%= ingredient.amount %>  <i><%= ingredient.food.name %></i> </p>
-<% end %> 
+            <% if @recipe.completed && @recipe.completed == true %>
+                <%= form_with url: recipe_completed_path(@recipe.id) do |form| %>
+                    <%= form.button 'Edit Ingredients List', value: false %>
+                <% end %>
+            <% else %>
+                <p><%= link_to "Add ingredients", new_ingredient_path(@recipe) %></p> 
+                <%= form_with url: recipe_completed_path(@recipe.id) do |form| %>
+                    <%= form.button 'Mark Ingredients List Complete', value: true %>
+                <% end %>
+            <% end %>  
+        </div>
+        <div class='recipe_instructions'>
+            <h3> Instructions </h3>
+            <p><%= @recipe.instructions %> </p>
+        </div>
+    </div>            
+    <nav class = 'recipe_right'>
+            <p><%= link_to "Back to recipes home", recipe_home_path %></p>
+    </nav>
 
-<% if @recipe.completed %>
-    <%= check_box_tag 'completed[]', 1, checked: true %>
-    <%= label_tag :completed, "Ingredients List Complete" %>
-<% else %>
-    <%= link_to "Add ingredients", new_ingredient_path(@recipe) %> 
-    <%= check_box_tag :completed, 1 %>
-    <%= label_tag :completed, "Ingredients List Complete" %>
-<% end %>  
+</div>
 
 
-
-<h3> Instructions </h3>
-<p><%= @recipe.instructions %> </p>
-
-
-<%= link_to "Back to All Recipes", recipes_path %>

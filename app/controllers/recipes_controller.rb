@@ -1,22 +1,18 @@
 class RecipesController < ApplicationController
-
+    
     def home 
-        @current_user = current_user
     end
 
     def index
         @recipes = Recipe.all
-        @current_user = current_user
     end
 
     def user_recipes 
-        @current_user = current_user #User.find(params[:id])
     end
 
     def show
-        #byebug
+        # byebug
         @recipe = Recipe.find(params[:id])
-        #if params[]
     end
 
     def new
@@ -33,8 +29,15 @@ class RecipesController < ApplicationController
         end
     end
 
+    def completed
+        @recipe = Recipe.find(params[:id])
+        @recipe.update(completed: params[:button])
+        #byebug
+        redirect_to recipe_path(@recipe.id)
+    end
+
     private
     def recipe_params
-        params.require(:recipe).permit(:name, :meal, :cuisine, :description)
+        params.require(:recipe).permit(:name, :meal, :cuisine, :instructions)
     end
 end

@@ -15,27 +15,20 @@ class UsersController < ApplicationController
         end
     end
 
-    def index
-        @users = User.all
-    end
-
     def show
         user = User.find(params[:id])
         session[:user_id] = user.id
-        current_user
     end
     
     def edit
-        @user = current_user
-        @user_foods = @user.foods
+        @user_foods = @current_user.foods
     end
 
     def update
-        @user = current_user
         pantry_item = Pantry.find(params[:user][:foods])
-        food_to_remove = @user.foods.find(pantry_item.id)
-        @user.foods.delete(food_to_remove)
-        redirect_to user_pantry_path(@user.id)
+        food_to_remove = @current_user.foods.find(pantry_item.id)
+        @current_user.foods.delete(food_to_remove)
+        redirect_to user_pantry_path(@current_user.id)
     end
 
     def delete

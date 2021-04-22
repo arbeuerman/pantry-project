@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/recipes/home', to: 'recipes#home', as: 'recipe_home'
   get '/recipes', to: 'recipes#user_recipes', as: 'user_recipes'
+  post '/recipes/completed/:id', to: 'recipes#completed', as: 'recipe_completed'
   get '/recipes/all', to: 'recipes#index', as: 'recipes'
   post '/recipes/all', to: 'recipes#create'
   resources :recipes, only: [:show, :new]
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update'
   delete '/logout', to: 'users#delete'
 
-  resources :foods
+  #resources :foods
 
   resources :users, only: [:index, :show, :new, :create]
 

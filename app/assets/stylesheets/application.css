@@ -16,19 +16,53 @@
 
  body 
  {
-     background-color: aliceblue;
+    background-color: rgb(102, 153, 255, 0.7);
  }
 
  form
  {
-     border: black;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 1em;
+    background-color: #EEE1C6;
+    margin-bottom: 5em;
  }
+
+ form label 
+ {
+   display: block;
+   margin: 1em 0 0.25em;
+   font-size: 1em;
+   font-weight: bold;
+}
+ 
+form input,
+form select,
+form textarea
+{
+   border: 1px solid rgba(34,36,38,.15);
+   padding: 0.2em 0.2xem;
+}
+
+input[type=submit] {
+   display: block;
+   cursor: pointer;
+   color: white;
+   background-color:burlywood;
+   font-size: 14px;
+   font-weight: bold;
+   padding: .5em;
+   width: 30%;
+   margin: 0 auto;
+}
 
  .header 
  {
     display: flex;
-    background-color: #97e7fc;
+    background-color: #99CCFF;
     padding: 1em;
+    color: #336699;
  }
 
  nav.right
@@ -43,3 +77,58 @@
     padding: 3px;
     display: flex;
  }
+
+ nav.right a
+ {
+   color: #336699;
+ }
+
+div.basic_design
+{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: inherit;
+   background-color: beige;
+   color: #d3a05f;
+}
+div.basic_design p
+{
+   font-weight: 900;
+}
+
+div.basic_design a
+{
+   color: chocolate;
+   padding: .25em;
+   font-weight: 700;
+}
+
+div.basic_design span
+{
+   text-align: center;
+}
+
+div.recipe
+{  
+   display: flex;
+   padding: 1em;
+}
+
+div.recipe_ingredients
+{
+   padding-right: 1em;
+}
+
+div.recipe_instructions
+{
+   display: flex;
+   flex-direction: column;
+   padding-left: 1em;
+   text-align: left;
+}
+
+div.recipe_instructions h3
+{
+   text-align: left;
+}

@@ -1,6 +1,8 @@
-<h1> Add food to pantry: </h1>
+<div class='basic_design'>
+   <h1> Add food to pantry: </h1>
 
-<%= form_for @pantry do |f| %>
-   <p> Name of food: <%= f.collection_select :food_id, @foods, :id, :name %> </p>
-   <%= f.submit "Add food" %>
-<% end %>
+   <%= form_for @pantry do |f| %>
+      <p> Name of food: <%= f.collection_select :food_id, @foods, :id, :name %> </p>
+      <%= f.submit "Add food" %>
+   <% end %>
+</div>

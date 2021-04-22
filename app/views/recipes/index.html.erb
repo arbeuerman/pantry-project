@@ -1,8 +1,10 @@
-<h1> All Recipes </h1>
+<div class='basic_design'>
+    <h1> All Recipes </h1>
 
-<% @recipes.all.each do |recipe| %>
-    <p><%=link_to recipe.name, recipe_path(recipe.id)%> | Cuisine: <%=recipe.cuisine%> | Meal: <%=recipe.meal%></p>
-<% end %>    
+    <% @recipes.all.each do |recipe| %>
+        <p><%=link_to recipe.name, recipe_path(recipe.id)%> | Cuisine: <%=recipe.cuisine%> | Meal: <%=recipe.meal%></p>
+    <% end %>    
 
-<p><%= link_to "Back to recipes home", recipe_home_path %></p>
-<p><%= link_to "Back to my profile", user_path(@current_user.id) %></p>
+    <p><%= link_to "Back to recipes home", recipe_home_path %></p>
+    <p><%= link_to "Back to my profile", user_path(@current_user.id) %></p>
+</div>

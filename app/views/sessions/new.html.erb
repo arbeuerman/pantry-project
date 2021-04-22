@@ -1,20 +1,21 @@
 
 
-<h3> Please Login </h3>
+<div class='basic_design'>
+    <h3> Please Login </h3>
 
-<%= form_with url: '/login' do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit "Login" %>
+    <%= form_with url: '/login' do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <%= f.submit "Login" %>
 
-    <% if @errors %>
-        <% @errors.each do |error|%>
-            <%= error %>
-        <% end %>
+        
     <% end %>
-<% end %>
-
-<%# add a sign up option%>
+    <% if @errors %>
+            <% @errors.each do |error|%>
+               <p> Error: <%= error %> </p>
+            <% end %>
+    <% end %>
+</div>
 
