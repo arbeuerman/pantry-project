@@ -31,8 +31,8 @@ class RecipesController < ApplicationController
 
     def completed
         @recipe = Recipe.find(params[:id])
-        @recipe.update(completed: params[:button])
         #byebug
+        @recipe.update(completed: params[:button])
         redirect_to recipe_path(@recipe.id)
     end
 
