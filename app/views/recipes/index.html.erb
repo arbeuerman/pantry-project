@@ -1,8 +1,8 @@
 <div class='basic_design'>
     <h1> All Recipes </h1>
 
-    <% @recipes.all.each do |recipe| %>
-        <p><%=link_to recipe.name, recipe_path(recipe.id)%> | Cuisine: <%=recipe.cuisine%> | Meal: <%=recipe.meal%></p>
+    <% @recipes.each do |recipe| %>
+        <p><%=link_to recipe["strMeal"], recipe_path(recipe["idMeal"])%> | Cuisine: <%=recipe["strArea"]%> | Meal: <%=recipe["strCategory"]%></p>
     <% end %>    
 
     <p><%= link_to "Back to recipes home", recipe_home_path %></p>

@@ -14,4 +14,8 @@ class Recipe < ApplicationRecord
         end
         recipes
     end
+
+    def get_ingredients(recipe_hash)
+        byebug
+    end
 end

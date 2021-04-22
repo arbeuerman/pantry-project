@@ -120,6 +120,23 @@ div.recipe_ingredients
    padding-right: 1em;
 }
 
+div.ingredient_amount
+{
+   display: flex;
+   padding: 0.25em;
+   justify-content: space-between;
+}
+div.ingredient_amount span.ingredient
+{
+   padding: 0.25em;
+   text-align: right;
+}
+div.ingredient_amount span.amount
+{
+   padding: 0.25em;
+   text-align: left;
+}
+
 div.recipe_instructions
 {
    display: flex;
