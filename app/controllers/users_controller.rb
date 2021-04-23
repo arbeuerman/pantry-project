@@ -25,9 +25,10 @@ class UsersController < ApplicationController
     end
 
     def update
-        pantry_item = Pantry.find(params[:user][:foods])
-        food_to_remove = @current_user.foods.find(pantry_item.id)
-        @current_user.foods.delete(food_to_remove)
+        pantry_item = Pantry.find_by(food_id: params[:user][:foods], user_id: @current_user.id)
+        # byebug
+        @current_user.pantries.find(pantry_item.id).delete
+        # @current_user.foods.delete(food_to_remove)
         redirect_to user_pantry_path(@current_user.id)
     end
 
