@@ -15,4 +15,10 @@ class Recipe < ApplicationRecord
         end
         recipes
     end
+
+    # def list_instructions
+    #     #create a regex to split on. any number followed by a period
+    #     #delimiter = /[1-20].\/
+    #     self.instructions.match
+    # end
 end

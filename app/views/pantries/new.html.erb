@@ -8,7 +8,7 @@
     <% end %>
     
    <%= form_for @pantry do |f| %>
-      <p> Name of food: <%= f.collection_select :food_id, @foods, :id, :name %> </p>
+      <p> Name of food: <%= f.collection_select :food_id, @foods.sort, :id, :name %> </p>
       <%= f.submit "Add food" %>
    <% end %>
 </div>

@@ -9,14 +9,17 @@ class User < ApplicationRecord
     def find_recipes
       #get list of all foods that user has in pantry
       user_foods = self.foods.map { |food| food.name } 
-      # byebug
+    #   byebug
       #get recipes and their ingredients (foods)
       user_recipes = []
       Recipe.recipe_book.each do |recipe, ingredients_for_recipe| 
+        # byebug
           if (ingredients_for_recipe - user_foods).empty?
+            # byebug
               user_recipes << recipe
           end
       end
+    #   byebug
       user_recipes
   end
 

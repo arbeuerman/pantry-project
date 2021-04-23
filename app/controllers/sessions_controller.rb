@@ -5,12 +5,13 @@ class SessionsController < ApplicationController
   
     def create
       # find the user in the database by the name
-      user = User.find_by(username: params[:username])
-      if user
+      @user = User.find_by(username: params[:username])
+      if @user
         session[:user_id] = user.id 
         redirect_to user_path(user)
       else
-        @errors = "Incorrect username, please try again"
+        flash[:errors] = "Incorrect username, please try again or sign up for an account"
+        # byebug
         redirect_to login_path
       end
 

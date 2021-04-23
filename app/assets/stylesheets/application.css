@@ -126,6 +126,7 @@ div.recipe_instructions
    flex-direction: column;
    padding-left: 1em;
    text-align: left;
+   padding-right: 1.5em;
 }
 
 div.recipe_instructions h3

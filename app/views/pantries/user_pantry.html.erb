@@ -1,8 +1,7 @@
 <div class='basic_design'>
     <h1> <%= @current_user.username %>'s Pantry </h1>
-    <h3> Food: </h3>
     <span>
-        <% @foods.each do |food| %>
+        <% @foods.sort.each do |food| %>
             <p><%= food.name %></p>
         <% end %>
     </span>

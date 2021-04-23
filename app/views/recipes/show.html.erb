@@ -22,6 +22,9 @@
             <h3> Instructions </h3>
             <p><%= @recipe.instructions %> </p>
         </div>
+        <div class="recipe_img">
+            <%= image_tag(@recipe.image_url, :alt => "Image of #{@recipe.name}") %>
+        </div>
     </div>            
     <nav class = 'recipe_right'>
             <p><%= link_to "Back to recipes home", recipe_home_path %></p>

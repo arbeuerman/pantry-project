@@ -1,6 +1,6 @@
 <h1> Remove food from pantry: </h1>
 
 <%= form_for @current_user do |f| %>
-   <p> Name of food: <%= f.collection_select :foods, @user_foods, :id, :name %> </p>
+   <p> Name of food: <%= f.collection_select :foods, @user_foods.sort, :id, :name %> </p>
    <%= f.submit "Remove food" %>
 <% end %>

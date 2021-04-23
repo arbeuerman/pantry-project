@@ -19,13 +19,13 @@ Ingredient.reset_pk_sequence
 # User.destroy_all
 # User.reset_pk_sequence
 
-# Faker::Config.locale = :en
+# # Faker::Config.locale = :en
 
-# 10.times do 
+# 5.times do 
 #     # byebug
 #     User.create(username: Faker::Creature::Animal.name.downcase, password: 'abc123', dietary_restriction: %w(vegan vegetarian gluten-free).sample)
 # end
-I18n.reload!
+# I18n.reload!
 
 def request_api(url)
     response = Excon.get(
@@ -40,11 +40,11 @@ def request_api(url)
     new_array[1]
 end
 
-def find_recipes(letter)
-  request_api(
-  "https://www.themealdb.com/api/json/v1/1/search.php?f=#{letter}"
-  )
-end
+# def find_recipes(letter)
+#   request_api(
+#   "https://www.themealdb.com/api/json/v1/1/search.php?f=#{letter}"
+#   )
+# end
 
 def get_recipe_info(id)
   request_api(
@@ -52,11 +52,11 @@ def get_recipe_info(id)
   )
 end
 
-def get_ingredients()
-    request_api(
-        "https://www.themealdb.com/api/json/v1/1/list.php?i=list"
-    )
-end
+# def get_ingredients()
+#     request_api(
+#         "https://www.themealdb.com/api/json/v1/1/list.php?i=list"
+#     )
+# end
 
 def get_ingredients_amounts (recipe_hash)
     ingredients = get_ingredients_for_recipe(recipe_hash)
@@ -84,8 +84,8 @@ def get_amounts(recipe_hash)
     amounts
 end
 
-# 5.times do 
-#     letter = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z).sample
+# letters = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+# letters.each do |letter| 
 #     recipes = find_recipes(letter)
 #     if recipes && recipes.size > 0
 #         recipes.each do |recipe|
@@ -93,7 +93,7 @@ end
 #             Recipe.create(name: recipe["strMeal"], 
 #             meal: recipe["strCategory"], 
 #             cuisine: recipe["strArea"], instructions: recipe["strInstructions"], completed: true,
-#             api_id: recipe["idMeal"])
+#             api_id: recipe["idMeal"], image_url: recipe["strMealThumb"] )
 #         end
 #     end
 # end
@@ -113,9 +113,12 @@ Recipe.all.each do |recipe|
     
     ingredients_amounts.each do |ingredient, amount|
         food = nil
-        if ingredient == "Carrots"
-            # byebug
-            food = Food.find_by(name: "carrot")
+        if ingredient == "Carrot"
+            food = Food.find_by(name: "carrots")
+        elsif ingredient == "Red Onion"
+            food = Food.find_by(name: "red onions")
+        elsif ingredient == "Blackberrys"
+            food = Food.find_by(name: "blackberries")        
         else
             food = Food.find_by(name: ingredient.downcase)
         end

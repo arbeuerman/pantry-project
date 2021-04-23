@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_152132) do
+ActiveRecord::Schema.define(version: 2021_04_23_184125) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_152132) do
     t.string "instructions"
     t.boolean "completed"
     t.integer "api_id"
+    t.string "image_url"
   end
 
   create_table "users", force: :cascade do |t|
