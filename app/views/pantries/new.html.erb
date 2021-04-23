@@ -1,6 +1,12 @@
 <div class='basic_design'>
    <h1> Add food to pantry: </h1>
 
+   <% if flash[:errors] %>
+        <% flash[:errors].each do |error|%>
+            <p>Error: <%= error %></p>
+        <% end %>
+    <% end %>
+    
    <%= form_for @pantry do |f| %>
       <p> Name of food: <%= f.collection_select :food_id, @foods, :id, :name %> </p>
       <%= f.submit "Add food" %>

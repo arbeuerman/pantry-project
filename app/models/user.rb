@@ -2,9 +2,16 @@ class User < ApplicationRecord
     has_many :pantries
     has_many :foods, through: :pantries
 
+    validates :username, presence: true
+    validates :username, uniqueness: true
+    validates :password, presence: true
+
     def find_recipes
         #get list of all foods that user has in pantry
         user_foods = self.foods 
+        user_food_names = user_foods.map { |food| food.name}.join(",")
+        #combine into comma separated string 
+        find_user_recipes(user_food_names)
 
         #get recipes and their ingredients (foods)
         user_recipes = []
@@ -15,4 +22,6 @@ class User < ApplicationRecord
         end
         user_recipes
     end
+
+    
 end

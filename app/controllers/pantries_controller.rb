@@ -14,7 +14,12 @@ class PantriesController < ApplicationController
         @pantry = Pantry.new(pantry_params)
         @pantry.user_id = current_user.id
         @pantry.save
-        redirect_to user_pantry_path(current_user)
+        if @pantry.valid?
+            redirect_to user_pantry_path(current_user)
+        else
+            flash[:errors] = @pantry.errors.full_messages
+            redirect_to add_to_pantry_path(current_user)
+        end
     end 
 
     
