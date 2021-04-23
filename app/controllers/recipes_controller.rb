@@ -8,6 +8,8 @@ class RecipesController < ApplicationController
     end
 
     def user_recipes 
+        @user_recipes = @current_user.find_recipes
+        # byebug
     end
 
     def show

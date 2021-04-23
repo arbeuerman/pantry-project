@@ -10,7 +10,8 @@ class Recipe < ApplicationRecord
     def self.recipe_book
         recipes = {}
         Recipe.all.each do |recipe|
-            recipes[recipe] = recipe.foods
+            food_names = recipe.foods.map { |food| food.name }
+            recipes[recipe] = food_names
         end
         recipes
     end
