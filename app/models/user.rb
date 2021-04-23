@@ -7,21 +7,17 @@ class User < ApplicationRecord
     validates :password, presence: true
 
     def find_recipes
-        #get list of all foods that user has in pantry
-        user_foods = self.foods 
-        user_food_names = user_foods.map { |food| food.name}.join(",")
-        #combine into comma separated string 
-        find_user_recipes(user_food_names)
+      #get list of all foods that user has in pantry
+      user_foods = self.foods 
 
-        #get recipes and their ingredients (foods)
-        user_recipes = []
-        Recipe.recipe_book.each do |recipe, ingredients_for_recipe| 
-            if (ingredients_for_recipe - user_foods).empty?
-                user_recipes << recipe
-            end
-        end
-        user_recipes
-    end
+      #get recipes and their ingredients (foods)
+      user_recipes = []
+      Recipe.recipe_book.each do |recipe, ingredients_for_recipe| 
+          if (ingredients_for_recipe - user_foods).empty?
+              user_recipes << recipe
+          end
+      end
+      user_recipes
+  end
 
-    
 end
