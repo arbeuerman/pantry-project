@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
 
     validates :name, presence: true
     validates :name, uniqueness: true
-    validates :meal, inclusion: {in: %w(Breakfast Lunch Dinner Snack), message: "%{value} is not a valid meal type"}
+    #validates :meal, inclusion: {in: %w(Breakfast Lunch Dinner Snack Dessert), message: "%{value} is not a valid meal type"}
     #validates :instructions, length: {minimum: 1 }
 
     def self.recipe_book
